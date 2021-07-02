@@ -12,31 +12,30 @@ __**Important Links**__
 # Description
 An addon for the Stargate-Bukkit plugin. Creates an interface for [commandHelper](https://enginehub.org/commandhelper/) (part of [MethodScript](https://discord.gg/Z7jpHed)). 
 
-#### Features:
-- To be determined
-##### Functions
+## Features:
+### Functions
 
 * boolean **sg_set_owner(portalName, portalNetwork, owner)** Sets the portal's owner.
 * string **sg_get_owner_name(portalName, portalNetwork)** Returns the portal's owner name.
 * string **sg_get_owner_uuid(portalName, portalNetwork)** Returns the portal's owner UUID.
 * array **sg_get_portal_info(portalName, portalNetwork)** Gets an array of data about a specific Stargate portal.
 
-##### Events
-###### stargate_access
+### Events
+#### stargate_access
 
 Fired when a player interacts with a Stargate. Result determines access.
 
 * prefilters: deny (boolean - Whether access was denied or not.)
 * data: player, portal, network
 
-###### stargate_destroy
+#### stargate_destroy
 
 Fired when a block of a Stargate portal is broken.
 
 * prefilters: deny (boolean - Whether access was denied or not.)
 * data: player, portal, network
 
-###### stargate_open
+#### stargate_open
 
 Fired when a Stargate portal is opened.
 
