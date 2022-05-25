@@ -1,18 +1,22 @@
 package me.pseudoknight.CHStargate.abstraction.Stargate;
 
 import com.laytonsmith.abstraction.Implementation;
+import com.laytonsmith.abstraction.MCEntity;
 import com.laytonsmith.abstraction.MCPlayer;
+import com.laytonsmith.abstraction.bukkit.entities.BukkitMCEntity;
 import com.laytonsmith.abstraction.bukkit.entities.BukkitMCPlayer;
 import com.laytonsmith.annotations.abstraction;
 import me.pseudoknight.CHStargate.abstraction.CHStargateAccessEvent;
 import me.pseudoknight.CHStargate.abstraction.CHStargateDestroyEvent;
 import me.pseudoknight.CHStargate.abstraction.CHStargateEvent;
 import me.pseudoknight.CHStargate.abstraction.CHStargateOpenEvent;
-import net.TheDgtl.Stargate.Portal;
 import net.TheDgtl.Stargate.event.StargateAccessEvent;
 import net.TheDgtl.Stargate.event.StargateDestroyEvent;
 import net.TheDgtl.Stargate.event.StargateEvent;
 import net.TheDgtl.Stargate.event.StargateOpenEvent;
+import net.TheDgtl.Stargate.network.portal.Portal;
+
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 public class Events {
@@ -54,8 +58,8 @@ public class Events {
 		}
 
 		@Override
-		public MCPlayer getPlayer() {
-			return new BukkitMCPlayer(e.getPlayer());
+		public MCEntity getActor() {
+			return new BukkitMCEntity(e.getEntity());
 		}
 
 		@Override
@@ -116,8 +120,8 @@ public class Events {
 		}
 
 		@Override
-		public MCPlayer getPlayer() {
-			return new BukkitMCPlayer(e.getPlayer());
+		public MCEntity getActor() {
+			return new BukkitMCEntity(e.getEntity());
 		}
 
 	}
@@ -138,12 +142,12 @@ public class Events {
 		}
 
 		@Override
-		public MCPlayer getPlayer() {
-			Player p = e.getPlayer();
+		public MCEntity getActor() {
+			Entity p = e.getEntity();
 			if(p == null) {
 				return null;
 			}
-			return new BukkitMCPlayer(e.getPlayer());
+			return new BukkitMCEntity(p);
 		}
 
 		@Override

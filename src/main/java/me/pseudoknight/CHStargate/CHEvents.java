@@ -1,5 +1,6 @@
 package me.pseudoknight.CHStargate;
 
+import com.laytonsmith.abstraction.MCEntity;
 import com.laytonsmith.abstraction.MCPlayer;
 import com.laytonsmith.annotations.api;
 import com.laytonsmith.core.MSVersion;
@@ -16,9 +17,12 @@ import com.laytonsmith.core.natives.interfaces.Mixed;
 import me.pseudoknight.CHStargate.abstraction.CHStargateAccessEvent;
 import me.pseudoknight.CHStargate.abstraction.CHStargateDestroyEvent;
 import me.pseudoknight.CHStargate.abstraction.CHStargateOpenEvent;
+import net.TheDgtl.Stargate.network.portal.Portal;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.bukkit.entity.Player;
 
 public class CHEvents {
 
@@ -51,7 +55,7 @@ public class CHEvents {
 		public String docs() {
 			return "{deny: <boolean> Whether access was denied or not. }"
 					+ " Fired when a block of a Stargate portal is broken."
-					+ " {player: The player that broke the block. | portal: The Stargate portal's name."
+					+ " {actorUUID: The entity that broke the block. | portal: The Stargate portal's name."
 					+ " | network: The Stargate network this portal belongs to.}"
 					+ "{} "
 					+ " {}";
@@ -67,10 +71,10 @@ public class CHEvents {
 		public Map<String, Mixed> evaluate(BindableEvent event) throws EventException {
 			CHStargateDestroyEvent e = (CHStargateDestroyEvent) event;
 			Map<String, Mixed> map = new HashMap<>();
-			map.put("player", new CString(e.getPlayer().getName(), Target.UNKNOWN));
 			map.put("portal", new CString(e.getPortal().getName(), Target.UNKNOWN));
-			map.put("network", new CString(e.getPortal().getNetwork(), Target.UNKNOWN));
-			return map;
+			map.put("network", new CString(e.getPortal().getNetwork().getName(), Target.UNKNOWN));
+            map.put("actorUUID", new CString(e.getActor().getUniqueId().toString(), Target.UNKNOWN));
+            return map;
 		}
 
 		@Override
@@ -96,7 +100,7 @@ public class CHEvents {
 		public String docs() {
 			return "{<boolean> deny: Whether access was denied or not. } "
 					+ "Fired when a player interacts with a Stargate. Result determines access."
-					+ " {player: The player requesting access. | portal: The Stargate portal's name."
+					+ " {actorUUID: The entity requesting access. | portal: The Stargate portal's name."
 					+ " | network: The Stargate network this portal belongs to.}"
 					+ "{} "
 					+ "{} ";
@@ -112,9 +116,10 @@ public class CHEvents {
 		public Map<String, Mixed> evaluate(BindableEvent event) throws EventException {
 			CHStargateAccessEvent e = (CHStargateAccessEvent) event;
 			Map<String, Mixed> map = new HashMap<>();
-			map.put("player", new CString(e.getPlayer().getName(), Target.UNKNOWN));
+			Portal portal = e.getPortal();
+			map.put("actorUUID", new CString(e.getActor().getUniqueId().toString(), Target.UNKNOWN));
 			map.put("portal", new CString(e.getPortal().getName(), Target.UNKNOWN));
-			map.put("network", new CString(e.getPortal().getNetwork(), Target.UNKNOWN));
+			map.put("network", new CString(e.getPortal().getNetwork().getName(), Target.UNKNOWN));
 			return map;
 		}
 
@@ -141,7 +146,7 @@ public class CHEvents {
 		public String docs() {
 			return "{} "
 					+ "Fired when a Stargate portal is opened."
-					+ " {player: The player opening the portal, if one. | portal: The Stargate portal's name."
+					+ " {actorUUID: The entity opening the portal, if one. | portal: The Stargate portal's name."
 					+ " | network: The Stargate network this portal belongs to.}"
 					+ "{} "
 					+ "{} ";
@@ -156,12 +161,12 @@ public class CHEvents {
 		public Map<String, Mixed> evaluate(BindableEvent event) throws EventException {
 			CHStargateOpenEvent e = (CHStargateOpenEvent) event;
 			Map<String, Mixed> map = new HashMap<>();
-			MCPlayer p = e.getPlayer();
+			MCEntity p = e.getActor();
 			if(p != null) {
-				map.put("player", new CString(e.getPlayer().getName(), Target.UNKNOWN));
+				map.put("actorUUID", new CString(e.getActor().getUniqueId().toString(), Target.UNKNOWN));
 			}
 			map.put("portal", new CString(e.getPortal().getName(), Target.UNKNOWN));
-			map.put("network", new CString(e.getPortal().getNetwork(), Target.UNKNOWN));
+			map.put("network", new CString(e.getPortal().getNetwork().getName(), Target.UNKNOWN));
 			return map;
 		}
 

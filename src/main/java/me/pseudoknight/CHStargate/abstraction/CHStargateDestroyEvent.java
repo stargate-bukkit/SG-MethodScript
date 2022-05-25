@@ -1,10 +1,10 @@
 package me.pseudoknight.CHStargate.abstraction;
 
-import com.laytonsmith.abstraction.MCPlayer;
+import com.laytonsmith.abstraction.MCEntity;
 
 public interface CHStargateDestroyEvent extends CHStargateEvent {
 
-	MCPlayer getPlayer();
+	MCEntity getActor();
 	boolean getDeny();
 	void setDeny(boolean deny);
 	String getDenyReason();

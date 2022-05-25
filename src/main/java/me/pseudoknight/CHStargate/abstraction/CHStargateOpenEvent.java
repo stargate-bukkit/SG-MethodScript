@@ -1,10 +1,10 @@
 package me.pseudoknight.CHStargate.abstraction;
 
-import com.laytonsmith.abstraction.MCPlayer;
+import com.laytonsmith.abstraction.MCEntity;
 
 public interface CHStargateOpenEvent extends CHStargateEvent {
 
-	MCPlayer getPlayer();
+	MCEntity getActor();
 	boolean getForce();
 	void setForce(boolean force);
 
