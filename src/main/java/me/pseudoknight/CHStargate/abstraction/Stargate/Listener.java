@@ -38,5 +38,30 @@ public class Listener implements org.bukkit.event.Listener {
 	public void onStargateOpen(StargateOpenEvent event) {
 		EventUtils.TriggerListener(Driver.EXTENSION, "stargate_open", new BukkitStargateOpenEvent(event));
 	}
+	
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void onStargateDeactivate(StargateDeactivateEvent event) {
+	    EventUtils.TriggerListener(Driver.EXTENSION, "stargate_deactivate", new BukkitStargateDeactivateEvent(event));
+	}
+	
+	@EventHandler(priority = EventPriority.LOWEST)
+    public void onStargateClose(StargateCloseEvent event) {
+        EventUtils.TriggerListener(Driver.EXTENSION, "stargate_deactivate", new BukkitStargateCloseEvent(event));
+    }
+	
+	@EventHandler(priority = EventPriority.LOWEST)
+    public void onStargateActivate(StargateActivateEvent event) {
+        EventUtils.TriggerListener(Driver.EXTENSION, "stargate_deactivate", new BukkitStargateActivateEvent(event));
+    }
+	
+	@EventHandler(priority = EventPriority.LOWEST)
+    public void onStargatePortal(StargatePortalEvent event) {
+        EventUtils.TriggerListener(Driver.EXTENSION, "stargate_deactivate", new BukkitStargatePortalEvent(event));
+    }
+	
+	@EventHandler(priority = EventPriority.LOWEST)
+    public void onStargateCreate(StargateCreateEvent event) {
+        EventUtils.TriggerListener(Driver.EXTENSION, "stargate_deactivate", new BukkitStargateCreateEvent(event));
+    }
 
 }

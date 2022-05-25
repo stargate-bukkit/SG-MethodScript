@@ -20,7 +20,7 @@ public class MSStargate extends AbstractExtension {
     
     
 	public Version getVersion() {
-		return new SimpleVersion(3,0,1);
+		return new SimpleVersion(4,0,0);
 	}
 
     @Override
