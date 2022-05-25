@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.pseudoknight</groupId>
-    <artifactId>CHStargate</artifactId>
+    <artifactId>SGMethodscript</artifactId>
     <version>3.0.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -93,9 +93,15 @@
             <version>3.3.4-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.TheDgtl</groupId>
+            <groupId>net.TheDgtl</groupId>
             <artifactId>Stargate</artifactId>
-            <version>0.8.0.3</version>
+            <version>1.0.0.4-ALPHA</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>20.1.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
