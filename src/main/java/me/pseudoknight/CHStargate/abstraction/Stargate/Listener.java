@@ -26,17 +26,17 @@ public class Listener implements org.bukkit.event.Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onStargateDestroy(StargateDestroyEvent event) {
-		EventUtils.TriggerListener(Driver.EXTENSION, "stargate_destroy", new Events.BukkitStargateDestroyEvent(event));
+		EventUtils.TriggerListener(Driver.EXTENSION, "stargate_destroy", new BukkitStargateDestroyEvent(event));
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onStargateAccess(StargateAccessEvent event) {
-		EventUtils.TriggerListener(Driver.EXTENSION, "stargate_access", new Events.BukkitStargateAccessEvent(event));
+		EventUtils.TriggerListener(Driver.EXTENSION, "stargate_access", new BukkitStargateAccessEvent(event));
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onStargateOpen(StargateOpenEvent event) {
-		EventUtils.TriggerListener(Driver.EXTENSION, "stargate_open", new Events.BukkitStargateOpenEvent(event));
+		EventUtils.TriggerListener(Driver.EXTENSION, "stargate_open", new BukkitStargateOpenEvent(event));
 	}
 
 }

@@ -14,9 +14,9 @@ import com.laytonsmith.core.events.Prefilters;
 import com.laytonsmith.core.exceptions.EventException;
 import com.laytonsmith.core.exceptions.PrefilterNonMatchException;
 import com.laytonsmith.core.natives.interfaces.Mixed;
-import me.pseudoknight.CHStargate.abstraction.CHStargateAccessEvent;
-import me.pseudoknight.CHStargate.abstraction.CHStargateDestroyEvent;
-import me.pseudoknight.CHStargate.abstraction.CHStargateOpenEvent;
+import me.pseudoknight.CHStargate.abstraction.MSStargateAccessEvent;
+import me.pseudoknight.CHStargate.abstraction.MSStargateDestroyEvent;
+import me.pseudoknight.CHStargate.abstraction.MSStargateOpenEvent;
 import net.TheDgtl.Stargate.network.portal.Portal;
 
 import java.util.HashMap;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 import org.bukkit.entity.Player;
 
-public class CHEvents {
+public class MSEvents {
 
 	protected static abstract class StargateEvent extends AbstractEvent {
 		@Override
@@ -63,13 +63,13 @@ public class CHEvents {
 
 		@Override
 		public boolean matches(Map<String, Mixed> prefilter, BindableEvent e) throws PrefilterNonMatchException {
-			Prefilters.match(prefilter, "deny", ((CHStargateDestroyEvent) e).getDeny(), Prefilters.PrefilterType.BOOLEAN_MATCH);
+			Prefilters.match(prefilter, "deny", ((MSStargateDestroyEvent) e).getDeny(), Prefilters.PrefilterType.BOOLEAN_MATCH);
 			return true;
 		}
 
 		@Override
 		public Map<String, Mixed> evaluate(BindableEvent event) throws EventException {
-			CHStargateDestroyEvent e = (CHStargateDestroyEvent) event;
+			MSStargateDestroyEvent e = (MSStargateDestroyEvent) event;
 			Map<String, Mixed> map = new HashMap<>();
 			map.put("portal", new CString(e.getPortal().getName(), Target.UNKNOWN));
 			map.put("network", new CString(e.getPortal().getNetwork().getName(), Target.UNKNOWN));
@@ -84,7 +84,7 @@ public class CHEvents {
 
 		@Override
 		public void cancel(BindableEvent e, boolean state) {
-			((CHStargateDestroyEvent) e).setDeny(state);
+			((MSStargateDestroyEvent) e).setDeny(state);
 		}
 	}
 
@@ -108,13 +108,13 @@ public class CHEvents {
 
 		@Override
 		public boolean matches(Map<String, Mixed> prefilter, BindableEvent e) throws PrefilterNonMatchException {
-			Prefilters.match(prefilter, "deny", ((CHStargateAccessEvent) e).getDeny(), Prefilters.PrefilterType.BOOLEAN_MATCH);
+			Prefilters.match(prefilter, "deny", ((MSStargateAccessEvent) e).getDeny(), Prefilters.PrefilterType.BOOLEAN_MATCH);
 			return true;
 		}
 
 		@Override
 		public Map<String, Mixed> evaluate(BindableEvent event) throws EventException {
-			CHStargateAccessEvent e = (CHStargateAccessEvent) event;
+			MSStargateAccessEvent e = (MSStargateAccessEvent) event;
 			Map<String, Mixed> map = new HashMap<>();
 			Portal portal = e.getPortal();
 			map.put("actorUUID", new CString(e.getActor().getUniqueId().toString(), Target.UNKNOWN));
@@ -130,7 +130,7 @@ public class CHEvents {
 
 		@Override
 		public void cancel(BindableEvent e, boolean state) {
-			((CHStargateAccessEvent) e).setDeny(state);
+			((MSStargateAccessEvent) e).setDeny(state);
 		}
 	}
 
@@ -159,7 +159,7 @@ public class CHEvents {
 
 		@Override
 		public Map<String, Mixed> evaluate(BindableEvent event) throws EventException {
-			CHStargateOpenEvent e = (CHStargateOpenEvent) event;
+			MSStargateOpenEvent e = (MSStargateOpenEvent) event;
 			Map<String, Mixed> map = new HashMap<>();
 			MCEntity p = e.getActor();
 			if(p != null) {

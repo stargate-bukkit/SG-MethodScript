@@ -4,7 +4,7 @@ import com.laytonsmith.core.events.BindableEvent;
 
 import net.TheDgtl.Stargate.network.portal.Portal;
 
-public interface CHStargateEvent extends BindableEvent {
+public interface MSStargateEvent extends BindableEvent {
 
 	Portal getPortal();
 

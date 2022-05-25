@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import org.bukkit.Bukkit;
 
 @MSExtension("CHStargate")
-public class CHStargate extends AbstractExtension {
+public class MSStargate extends AbstractExtension {
 
     static StargateAPI stargateAPI;
     

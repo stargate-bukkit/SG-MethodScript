@@ -34,7 +34,7 @@ import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
-public class CHFunctions {
+public class MSFunctions {
 	public static String docs() {
 		return "These functions allow you to interface with Stargate portals.";
 	}
@@ -77,7 +77,7 @@ public class CHFunctions {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-		    Network net = CHStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
+		    Network net = MSStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
             Portal portal = net.getPortal(args[0].val());
 			String owner = "";
 			if (portal != null) {
@@ -119,7 +119,7 @@ public class CHFunctions {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-		    Network net = CHStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
+		    Network net = MSStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
 			Portal portal = net.getPortal(args[0].val());
 			UUID owner = null;
 			if (portal != null) {
@@ -160,7 +160,7 @@ public class CHFunctions {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-		    Network net = CHStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
+		    Network net = MSStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
             Portal portal = net.getPortal(args[0].val());
 			String owner = args[2].val();
 			if (portal == null) {
@@ -209,7 +209,7 @@ public class CHFunctions {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-		    Network net = CHStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
+		    Network net = MSStargate.stargateAPI.getRegistry().getNetwork(args[1].val(), false);
             Portal portal = net.getPortal(args[0].val());
 			if (portal == null) {
 				throw new CRENotFoundException("Portal was not found.", t);

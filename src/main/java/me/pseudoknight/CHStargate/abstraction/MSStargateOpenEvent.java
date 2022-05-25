@@ -2,7 +2,7 @@ package me.pseudoknight.CHStargate.abstraction;
 
 import com.laytonsmith.abstraction.MCEntity;
 
-public interface CHStargateOpenEvent extends CHStargateEvent {
+public interface MSStargateOpenEvent extends MSStargateEvent {
 
 	MCEntity getActor();
 	boolean getForce();
