@@ -1,5 +1,8 @@
 package me.pseudoknight.CHStargate.abstraction.Stargate;
 
+import com.laytonsmith.abstraction.MCEntity;
+import com.laytonsmith.abstraction.bukkit.entities.BukkitMCEntity;
+
 import me.pseudoknight.CHStargate.abstraction.MSStargateCreateEvent;
 import net.TheDgtl.Stargate.event.StargateCreateEvent;
 
@@ -16,7 +19,7 @@ public class BukkitStargateCreateEvent extends BukkitStargateEvent implements MS
     }
 
     @Override
-    public boolean geetDeny() {
+    public boolean getDeny() {
         return event.getDeny();
     }
 
@@ -43,6 +46,11 @@ public class BukkitStargateCreateEvent extends BukkitStargateEvent implements MS
     @Override
     public void setCost(int cost) {
         event.setCost(cost);
+    }
+
+    @Override
+    public MCEntity getActor() {
+        return new BukkitMCEntity(event.getEntity());
     }
 
 }
