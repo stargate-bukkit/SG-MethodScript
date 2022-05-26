@@ -6,6 +6,7 @@ import com.laytonsmith.abstraction.bukkit.entities.BukkitMCEntity;
 import com.laytonsmith.annotations.abstraction;
 
 import me.pseudoknight.CHStargate.abstraction.MSStargateDestroyEvent;
+import me.pseudoknight.CHStargate.abstraction.Stargate.BukkitStargateEvent;
 import net.TheDgtl.Stargate.event.StargateDestroyEvent;
 
 @abstraction(type = Implementation.Type.BUKKIT)
@@ -16,11 +17,6 @@ public class BukkitStargateDestroyEvent extends BukkitStargateEvent implements M
 	public BukkitStargateDestroyEvent(StargateDestroyEvent event) {
 		super(event);
 		e = event;
-	}
-
-	@Override
-	public Object _GetObject() {
-		return e;
 	}
 
 	@Override
