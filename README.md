@@ -10,6 +10,10 @@ __**Important Links**__
 - [MethodScript discord](https://discord.gg/Z7jpHed)
 - [Support MethodScript](https://github.com/sponsors/LadyCailin)
 
+## Dependencies
+[The most recent version of Stargate](https://dev.bukkit.org/projects/stargate/files)
+[The most revent version of CommandHelper](https://methodscript.com/docs/3.3.5//Download.html)
+
 # Description
 An addon for the Stargate-Bukkit plugin. Creates an interface for [CommandHelper](https://enginehub.org/commandhelper/) (part of [MethodScript](https://discord.gg/Z7jpHed)). 
 
@@ -63,9 +67,6 @@ Fired when a stargate teleports an entity
 
 * returns: *null*
 * data: `actorUUID`, The entity being teleported; `portal`, the responsible portal's name; `network`, the network of the responsible portal.
-
-## Dependencies
-[The most recent version of Stargate](https://dev.bukkit.org/projects/stargate/files)
 
 # Changes
 [Version 4.0.0]
