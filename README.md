@@ -11,8 +11,8 @@ __**Important Links**__
 - [Support MethodScript](https://github.com/sponsors/LadyCailin)
 
 ## Dependencies
-[The most recent version of Stargate](https://dev.bukkit.org/projects/stargate/files)
-[The most revent version of CommandHelper](https://methodscript.com/docs/3.3.5//Download.html)
+- [The most recent version of Stargate](https://dev.bukkit.org/projects/stargate/files)
+- [The most revent version of CommandHelper](https://methodscript.com/docs/3.3.5//Download.html)
 
 # Description
 An addon for the Stargate-Bukkit plugin. Creates an interface for [CommandHelper](https://enginehub.org/commandhelper/) (part of [MethodScript](https://discord.gg/Z7jpHed)). 
